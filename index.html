@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kefi B.V. — Strategic Advisory Mobilization</title>
+<meta name="description" content="Kefi is a stealth-mode private holding ecosystem dedicated to capturing and capitalizing on high-potential global IP assets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:oklch(15% 0.025 260);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:oklch(72% 0.14 195);text-decoration:none}
+  a:hover{color:oklch(80% 0.14 195)}
+  @keyframes kefi-pulse{0%,100%{opacity:0.5}50%{opacity:1}}
+  @keyframes kefi-drift{0%{background-position:0 0}100%{background-position:120px 120px}}
+  @keyframes kefi-fog{0%{transform:translate3d(-4%,-3%,0) scale(1.1)}50%{transform:translate3d(3%,4%,0) scale(1.25)}100%{transform:translate3d(-4%,-3%,0) scale(1.1)}}
+</style>
+</head>
+<body>
+
+<div style="background:oklch(15% 0.025 260);color:oklch(97% 0.005 260);min-height:100vh;overflow-x:hidden">
+
+  <header style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;backdrop-filter:blur(18px) saturate(140%);background:rgba(10,12,20,0.45);border-bottom:1px solid rgba(255,255,255,0.07)">
+    <img src="uploads/Kefi_logo.png" alt="Kefi" style="height:79px;width:139px;object-fit:contain">
+    <nav style="display:flex;gap:40px;align-items:center">
+      <a href="#hero" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Overview</a>
+      <a href="#about" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Kefi B.V.</a>
+      <a href="#metrics" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Metrics</a>
+    </nav>
+  </header>
+
+  <section id="hero" style="position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <canvas id="heroCanvas" data-depth="-0.05" style="position:absolute;inset:0;width:100%;height:110%;z-index:1"></canvas>
+    <div data-depth="-0.03" style="position:absolute;inset:0;z-index:2;background-image:linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:64px 64px;animation:kefi-drift 40s linear infinite;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,black 0%,transparent 100%)"></div>
+    <div style="position:absolute;inset:0;z-index:3;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(20,184,166,0.10),transparent 60%),radial-gradient(ellipse 80% 60% at 50% 100%,rgba(15,17,28,0.9),transparent),linear-gradient(180deg,rgba(15,17,28,0.55) 0%,rgba(15,17,28,0.25) 40%,rgba(15,17,28,0.85) 100%)"></div>
+
+    <div style="position:absolute;top:110px;left:48px;width:34px;height:34px;border-top:1.5px solid oklch(72% 0.14 195 / 0.5);border-left:1.5px solid oklch(72% 0.14 195 / 0.5);z-index:4"></div>
+    <div style="position:absolute;bottom:48px;right:48px;width:34px;height:34px;border-bottom:1.5px solid oklch(72% 0.14 195 / 0.5);border-right:1.5px solid oklch(72% 0.14 195 / 0.5);z-index:4"></div>
+    <div style="position:absolute;top:110px;right:48px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:0.15em;color:oklch(70% 0.02 260);z-index:4;animation:kefi-pulse 3s ease-in-out infinite">● LIVE ADVISORY</div>
+
+    <div data-depth="0.1" style="position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;gap:28px;padding:0 24px;max-width:1100px;width:100%">
+      <img src="uploads/Kefi_logo.png" alt="Kefi" style="height:76px;width:auto;object-fit:contain;filter:drop-shadow(0 0 30px rgba(20,184,166,0.35))">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.22em;color:oklch(72% 0.14 195);text-transform:uppercase">Strategic Advisory Mobilization</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.5vw,76px);line-height:1.05;font-weight:700;margin:0;color:oklch(98% 0.003 260);letter-spacing:-0.01em;text-wrap:pretty;max-width:100%">CAPTURING TOMORROW'S VALUE, TODAY</h1>
+      <p style="font-size:clamp(18px,2.2vw,28px);line-height:1.6;color:oklch(78% 0.015 260);max-width:100%;margin:0;font-weight:600;text-wrap:pretty">Kefi is a stealth-mode private holding ecosystem dedicated to capturing and capitalizing on high-potential global IP assets. Driven by an adventurous, cross-cultural team of deal-makers, we operate without borders to acquire under-monetized patents and hidden strategic treasures. Through active, real-time portfolio management, we stay ahead of market shifts — liquidating or monetizing our assets at the absolute peak of value.</p>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:0.14em;color:oklch(55% 0.02 260);margin-top:8px">AMSTERDAM, NETHERLANDS &amp; MONACO — AUGUST 3, 2026</div>
+    </div>
+
+    <div style="position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;color:oklch(55% 0.02 260)">
+      <div style="font-size:10px;letter-spacing:0.2em;font-family:'Space Grotesk',sans-serif">SCROLL</div>
+      <div style="width:1px;height:32px;background:linear-gradient(180deg,oklch(72% 0.14 195),transparent)"></div>
+    </div>
+  </section>
+
+  <div style="position:relative">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:0">
+      <video autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:oklch(12% 0.02 260)">
+        <source src="uploads/background2.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(8,10,16,0.78) 0%,rgba(8,10,16,0.6) 40%,rgba(8,10,16,0.6) 60%,rgba(8,10,16,0.82) 100%)"></div>
+    </div>
+    <div style="position:relative;z-index:1;margin-top:-100vh">
+
+  <section id="about" style="position:relative;padding:280px 48px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:72px;align-items:center">
+
+    <div data-depth="0.06">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(72% 0.14 195);margin-bottom:20px">01 — KEFI B.V.</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,48px);font-weight:700;line-height:1.1;margin:0 0 28px;color:oklch(97% 0.005 260);text-wrap:pretty">A STEALTH-MODE HOLDING ECOSYSTEM</h2>
+      <p style="font-size:18px;line-height:1.75;color:oklch(75% 0.015 260);margin:0;text-wrap:pretty">Kefi B.V. is an Amsterdam-based investment and holding company with nearly a decade of institutional involvement in international motorsport and automotive-adjacent ventures. As a foundational early-stage investor and leading equity partner across its portfolio, Kefi B.V. has played a formative role in scaling ambitious sporting and commercial platforms from inception to global reach. The firm maintains a long-term equity optimization strategy, working alongside an aligned consortium of shareholders to guide portfolio companies through key strategic milestones, including corporate governance, capital markets initiatives, and brand expansion.</p>
+    </div>
+
+    <div data-depth="-0.04" style="position:relative;aspect-ratio:4/3;border:1px solid rgba(255,255,255,0.08)">
+      <div style="position:absolute;top:-1px;left:-1px;width:22px;height:22px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195);z-index:2"></div>
+      <div style="position:absolute;bottom:-1px;right:-1px;width:22px;height:22px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195);z-index:2"></div>
+      <img src="uploads/abstract-glowing-particles-with-bokeh-effect-backg-2026-03-26-23-26-16-utc.jpg" alt="Kefi portfolio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+    </div>
+  </section>
+
+  <section id="metrics" style="position:relative;padding:260px 48px;background:transparent;overflow:hidden">
+    <div style="position:absolute;inset:-15%;z-index:0;pointer-events:none;background:radial-gradient(ellipse 40% 35% at 25% 30%,rgba(20,184,166,0.16),transparent 60%),radial-gradient(ellipse 45% 40% at 75% 70%,rgba(94,90,220,0.14),transparent 60%),radial-gradient(ellipse 35% 30% at 60% 20%,rgba(20,20,30,0.9),transparent 70%);animation:kefi-fog 22s ease-in-out infinite"></div>
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,oklch(12% 0.02 260) 0%,transparent 30%,transparent 70%,oklch(12% 0.02 260) 100%)"></div>
+    <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(72% 0.14 195);margin-bottom:20px;text-align:center">02 — AT A GLANCE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.6vw,42px);font-weight:700;text-align:center;margin:0 0 90px;color:oklch(97% 0.005 260)">THE PORTFOLIO IN NUMBERS</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
+        <div data-depth="0.05" style="position:relative;border:1px solid rgba(255,255,255,0.1);padding:56px 32px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)">
+          <div style="position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195)"></div>
+          <div style="position:absolute;bottom:-1px;right:-1px;width:20px;height:20px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195)"></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">91</div>
+          <div style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Total IP Asset Units</div>
+        </div>
+        <div data-depth="0.05" style="position:relative;border:1px solid rgba(255,255,255,0.1);padding:56px 32px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)">
+          <div style="position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195)"></div>
+          <div style="position:absolute;bottom:-1px;right:-1px;width:20px;height:20px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195)"></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">33</div>
+          <div style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Countries &amp; Regions Involved</div>
+        </div>
+        <div data-depth="0.05" style="position:relative;border:1px solid rgba(255,255,255,0.1);padding:56px 32px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)">
+          <div style="position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195)"></div>
+          <div style="position:absolute;bottom:-1px;right:-1px;width:20px;height:20px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195)"></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">5</div>
+          <div style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Released Assets</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative;padding:64px 48px 48px;background:transparent;overflow:hidden">
+    <div style="position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(ellipse 40% 45% at 30% 50%,rgba(10,14,18,0.55),transparent 60%),radial-gradient(ellipse 35% 40% at 80% 40%,rgba(8,10,16,0.5),transparent 60%);animation:kefi-fog 28s ease-in-out infinite reverse"></div>
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,0.35)"></div>
+    <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap">
+      <img src="uploads/Kefi_logo.png" alt="Kefi" style="height:26px;width:auto;object-fit:contain;opacity:0.85">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:0.1em;color:oklch(50% 0.02 260)">AMSTERDAM, NETHERLANDS &amp; MONACO</div>
+    </div>
+    <p style="font-size:12.5px;line-height:1.7;color:oklch(42% 0.02 260);max-width:900px;margin:0">This page contains forward-looking statements regarding a proposed public offering, capital raise, and business strategy. Actual outcomes may differ materially from those expressed or implied. Nothing herein constitutes an offer to sell or a solicitation of an offer to buy any securities.</p>
+    <div style="font-size:12px;color:oklch(38% 0.02 260)">© 2026 Kefi B.V. All rights reserved.</div>
+    </div>
+  </footer>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  // ── Hero particle field ────────────────────────────────────────────────
+  var canvas = document.getElementById('heroCanvas');
+  if (canvas) {
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var raf;
+
+    function init() {
+      var count = Math.max(36, Math.floor((canvas.width * canvas.height) / 26000));
+      particles = [];
+      for (var i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.22,
+          r: Math.random() * 1.5 + 0.6
+        });
+      }
+    }
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      init();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
+        for (var j = i + 1; j < particles.length; j++) {
+          var q = particles[j];
+          var dx = p.x - q.x, dy = p.y - q.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 130) {
+            ctx.strokeStyle = 'rgba(94,234,212,' + (0.14 * (1 - dist / 130)) + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          }
+        }
+      }
+      for (var k = 0; k < particles.length; k++) {
+        var pt = particles[k];
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(129,216,208,0.75)';
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    draw();
+  }
+
+  // ── Scroll parallax ─────────────────────────────────────────────────────
+  var ticking = false;
+  function update() {
+    var els = document.querySelectorAll('[data-depth]');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var depth = parseFloat(el.getAttribute('data-depth'));
+      var rect = el.getBoundingClientRect();
+      el.style.transform = 'translate3d(0, ' + (rect.top * depth).toFixed(1) + 'px, 0)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+</script>
+
+</body>
+</html>
