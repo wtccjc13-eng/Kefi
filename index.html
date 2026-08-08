@@ -7,27 +7,47 @@
 <meta name="description" content="Kefi is a stealth-mode private holding ecosystem dedicated to capturing and capitalizing on high-potential global IP assets.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  @font-face{font-family:'Uncial Antiqua';src:url('uploads/UncialAntiqua-Regular.ttf') format('truetype');font-weight:normal;font-style:normal;font-display:swap}
+  @font-face{font-family:'Stonehenge';src:url('uploads/stonehen.ttf') format('truetype');font-weight:normal;font-style:normal;font-display:swap}
   *{box-sizing:border-box}
-  body{margin:0;background:oklch(15% 0.025 260);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  body{margin:0;background:oklch(15% 0.025 260);font-family:'Stonehenge',serif;-webkit-font-smoothing:antialiased}
   a{color:oklch(72% 0.14 195);text-decoration:none}
   a:hover{color:oklch(80% 0.14 195)}
   @keyframes kefi-pulse{0%,100%{opacity:0.5}50%{opacity:1}}
   @keyframes kefi-drift{0%{background-position:0 0}100%{background-position:120px 120px}}
   @keyframes kefi-fog{0%{transform:translate3d(-4%,-3%,0) scale(1.1)}50%{transform:translate3d(3%,4%,0) scale(1.25)}100%{transform:translate3d(-4%,-3%,0) scale(1.1)}}
+  /* Language selector */
+  .kflag{display:inline-flex;width:22px;height:14px;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,0.18);flex:0 0 auto}
+  .kflag svg{display:block;width:100%;height:100%}
+  #langBtn:hover{border-color:rgba(20,184,166,0.55)}
+  #langMenu button{display:flex;align-items:center;gap:10px;width:100%;background:transparent;border:0;padding:9px 10px;border-radius:5px;cursor:pointer;color:oklch(85% 0.01 260);font-family:'Space Grotesk',sans-serif;font-size:14px;text-align:left}
+  #langMenu button:hover{background:rgba(255,255,255,0.08)}
+  #langMenu button[aria-current="true"]{background:rgba(20,184,166,0.12)}
 </style>
 </head>
 <body>
 
 <div style="background:oklch(15% 0.025 260);color:oklch(97% 0.005 260);min-height:100vh;overflow-x:hidden">
 
-  <header style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;backdrop-filter:blur(18px) saturate(140%);background:rgba(10,12,20,0.45);border-bottom:1px solid rgba(255,255,255,0.07)">
+  <header style="font-family:'Space Grotesk',sans-serif;position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;backdrop-filter:blur(18px) saturate(140%);background:rgba(10,12,20,0.45);border-bottom:1px solid rgba(255,255,255,0.07)">
     <img src="uploads/Kefi_logo.png" alt="Kefi" style="height:79px;width:139px;object-fit:contain">
     <nav style="display:flex;gap:40px;align-items:center">
-      <a href="#hero" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Overview</a>
-      <a href="#about" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Kefi B.V.</a>
-      <a href="#metrics" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Metrics</a>
+      <a href="#hero" data-i18n="nav.overview" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Overview</a>
+      <a href="#about" data-i18n="nav.kefi" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Kefi B.V.</a>
+      <a href="#metrics" data-i18n="nav.metrics" style="color:oklch(85% 0.01 260);font-size:14px;font-weight:500;letter-spacing:0.02em">Metrics</a>
+      <div id="langSel" style="position:relative">
+        <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Select language" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:5px;padding:6px 10px;cursor:pointer;color:oklch(85% 0.01 260);font-family:'Space Grotesk',sans-serif;font-size:13px;line-height:1">
+          <span class="kflag" id="langFlag"></span>
+          <span id="langCode">EN</span>
+          <span style="opacity:0.55;font-size:9px">▼</span>
+        </button>
+        <div id="langMenu" role="menu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;min-width:164px;background:rgba(12,15,24,0.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,0.4)">
+          <button type="button" role="menuitem" data-lang="en"><span class="kflag" data-flag="en"></span><span>English</span></button>
+          <button type="button" role="menuitem" data-lang="fr"><span class="kflag" data-flag="fr"></span><span>Français</span></button>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -38,89 +58,93 @@
 
     <div style="position:absolute;top:110px;left:48px;width:34px;height:34px;border-top:1.5px solid oklch(72% 0.14 195 / 0.5);border-left:1.5px solid oklch(72% 0.14 195 / 0.5);z-index:4"></div>
     <div style="position:absolute;bottom:48px;right:48px;width:34px;height:34px;border-bottom:1.5px solid oklch(72% 0.14 195 / 0.5);border-right:1.5px solid oklch(72% 0.14 195 / 0.5);z-index:4"></div>
-    <div style="position:absolute;top:110px;right:48px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:0.15em;color:oklch(70% 0.02 260);z-index:4;animation:kefi-pulse 3s ease-in-out infinite">● LIVE ADVISORY</div>
+    <div data-i18n="hero.live" style="position:absolute;top:110px;right:48px;font-family:'Uncial Antiqua',serif;font-size:11px;letter-spacing:0.15em;color:oklch(70% 0.02 260);z-index:4;animation:kefi-pulse 3s ease-in-out infinite">● LIVE ADVISORY</div>
 
     <div data-depth="0.1" style="position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;gap:28px;padding:0 24px;max-width:1100px;width:100%">
       <img src="uploads/Kefi_logo.png" alt="Kefi" style="height:76px;width:auto;object-fit:contain;filter:drop-shadow(0 0 30px rgba(20,184,166,0.35))">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.22em;color:oklch(72% 0.14 195);text-transform:uppercase">Strategic Advisory Mobilization</div>
-      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.5vw,76px);line-height:1.05;font-weight:700;margin:0;color:oklch(98% 0.003 260);letter-spacing:-0.01em;text-wrap:pretty;max-width:100%">CAPTURING TOMORROW'S VALUE, TODAY</h1>
-      <p style="font-size:clamp(18px,2.2vw,28px);line-height:1.6;color:oklch(78% 0.015 260);max-width:100%;margin:0;font-weight:600;text-wrap:pretty">Kefi is a stealth-mode private holding ecosystem dedicated to capturing and capitalizing on high-potential global IP assets. Driven by an adventurous, cross-cultural team of deal-makers, we operate without borders to acquire under-monetized patents and hidden strategic treasures. Through active, real-time portfolio management, we stay ahead of market shifts — liquidating or monetizing our assets at the absolute peak of value.</p>
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:0.14em;color:oklch(55% 0.02 260);margin-top:8px">AMSTERDAM, NETHERLANDS &amp; MONACO — AUGUST 3, 2026</div>
+      <div data-i18n="hero.eyebrow" style="font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:0.22em;color:oklch(72% 0.14 195);text-transform:uppercase">Strategic Advisory Mobilization</div>
+      <h1 data-i18n="hero.headline" style="font-family:'Uncial Antiqua',serif;font-size:clamp(32px,5.5vw,76px);line-height:1.05;font-weight:700;margin:0;color:oklch(98% 0.003 260);letter-spacing:-0.01em;text-wrap:pretty;max-width:100%">CAPTURING TOMORROW'S VALUE, TODAY</h1>
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:100%;font-size:clamp(18px,2.2vw,28px);line-height:1.6;color:oklch(78% 0.015 260);font-weight:600;text-wrap:pretty">
+        <p data-i18n="hero.intro1" style="margin:0">Kefi is a stealth-mode private holding ecosystem operating as a global treasure box for high-potential assets.</p>
+        <p data-i18n="hero.intro2" style="margin:0">We are driven by a powerhouse team of explorers and adventurers who possess diverse professional fields and deep cross-cultural and cross-ideological backgrounds.</p>
+        <p data-i18n="hero.intro3" style="margin:0">We closely observe the market alongside our collection of hidden patents, releasing these premier assets when the timing aligns to achieve maximum monetization or execute strategic exchange with the most suitable entities.</p>
+      </div>
+      <div data-i18n="hero.dateline" style="font-family:'Uncial Antiqua',serif;font-size:12px;letter-spacing:0.14em;color:oklch(55% 0.02 260);margin-top:8px">AMSTERDAM, NETHERLANDS &amp; MONACO</div>
     </div>
 
     <div style="position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;color:oklch(55% 0.02 260)">
-      <div style="font-size:10px;letter-spacing:0.2em;font-family:'Space Grotesk',sans-serif">SCROLL</div>
+      <div data-i18n="hero.scroll" style="font-size:10px;letter-spacing:0.2em;font-family:'Uncial Antiqua',serif">SCROLL</div>
       <div style="width:1px;height:32px;background:linear-gradient(180deg,oklch(72% 0.14 195),transparent)"></div>
     </div>
   </section>
 
-  <div style="position:relative">
-    <div style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:0">
-      <video autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:oklch(12% 0.02 260)">
-        <source src="uploads/background2.mp4" type="video/mp4">
-      </video>
-      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(8,10,16,0.78) 0%,rgba(8,10,16,0.6) 40%,rgba(8,10,16,0.6) 60%,rgba(8,10,16,0.82) 100%)"></div>
-    </div>
-    <div style="position:relative;z-index:1;margin-top:-100vh">
+  <!-- Section 02 — About (Kefi_background.mp4) -->
+  <div style="position:relative;overflow:hidden">
+    <video autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:oklch(12% 0.02 260)">
+      <source src="uploads/Kefi_background.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,10,16,0.82) 0%,rgba(8,10,16,0.6) 55%,rgba(8,10,16,0.5) 100%)"></div>
 
-  <section id="about" style="position:relative;padding:280px 48px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:72px;align-items:center">
+  <section id="about" style="position:relative;z-index:1;padding:280px 48px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:72px;align-items:center">
 
-    <div data-depth="0.06">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(72% 0.14 195);margin-bottom:20px">01 — KEFI B.V.</div>
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,48px);font-weight:700;line-height:1.1;margin:0 0 28px;color:oklch(97% 0.005 260);text-wrap:pretty">A STEALTH-MODE HOLDING ECOSYSTEM</h2>
-      <p style="font-size:18px;line-height:1.75;color:oklch(75% 0.015 260);margin:0;text-wrap:pretty">Kefi B.V. is an Amsterdam-based investment and holding company with nearly a decade of institutional involvement in international motorsport and automotive-adjacent ventures. As a foundational early-stage investor and leading equity partner across its portfolio, Kefi B.V. has played a formative role in scaling ambitious sporting and commercial platforms from inception to global reach. The firm maintains a long-term equity optimization strategy, working alongside an aligned consortium of shareholders to guide portfolio companies through key strategic milestones, including corporate governance, capital markets initiatives, and brand expansion.</p>
-    </div>
-
-    <div data-depth="-0.04" style="position:relative;aspect-ratio:4/3;border:1px solid rgba(255,255,255,0.08)">
-      <div style="position:absolute;top:-1px;left:-1px;width:22px;height:22px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195);z-index:2"></div>
-      <div style="position:absolute;bottom:-1px;right:-1px;width:22px;height:22px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195);z-index:2"></div>
-      <img src="uploads/abstract-glowing-particles-with-bokeh-effect-backg-2026-03-26-23-26-16-utc.jpg" alt="Kefi portfolio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+    <div data-depth="0.06" style="max-width:820px">
+      <div data-i18n="about.label" style="font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:0.2em;color:oklch(72% 0.14 195);margin-bottom:20px">01 — KEFI B.V.</div>
+      <h2 data-i18n="about.h2" style="font-family:'Uncial Antiqua',serif;font-size:clamp(30px,4vw,48px);font-weight:700;line-height:1.1;margin:0 0 28px;color:oklch(97% 0.005 260);text-wrap:pretty">What Defines a Treasure Box?</h2>
+      <p data-i18n="about.body1" style="font-size:18px;line-height:1.75;color:oklch(75% 0.015 260);margin:0 0 18px;text-wrap:pretty">Our curated collection spans diverse frontiers, including medical IP, energy technology, sports, Web3, AI, and sovereign Public-Private Partnerships (PPP).</p>
+      <p data-i18n="about.body2" style="font-size:18px;line-height:1.75;color:oklch(75% 0.015 260);margin:0 0 18px;text-wrap:pretty">Within our repository are equities with absolute board-disruptive positions, assets or rights acquired at extreme discounts during opportune moments, emergent technologies held patiently for years until market readiness, government concessions for large-scale energy developments, and distressed assets primed for recapitalization.</p>
+      <p data-i18n="about.body3" style="font-size:18px;line-height:1.75;color:oklch(75% 0.015 260);margin:0;text-wrap:pretty">This low-profile, adventurer-style curation shapes our distinct DNA — allowing us to bypass draining public-market friction, redundant networking, and unnecessary institutional conflict.</p>
     </div>
   </section>
+  </div>
 
-  <section id="metrics" style="position:relative;padding:260px 48px;background:transparent;overflow:hidden">
+  <!-- Section 03 — Metrics + footer (Metrics_background.mp4) -->
+  <div style="position:relative;overflow:hidden">
+    <video autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:oklch(12% 0.02 260)">
+      <source src="uploads/Metrics_background.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(8,10,16,0.68) 0%,rgba(8,10,16,0.55) 40%,rgba(8,10,16,0.6) 70%,rgba(8,10,16,0.82) 100%)"></div>
+
+  <section id="metrics" style="position:relative;z-index:1;padding:260px 48px;background:transparent;overflow:hidden">
     <div style="position:absolute;inset:-15%;z-index:0;pointer-events:none;background:radial-gradient(ellipse 40% 35% at 25% 30%,rgba(20,184,166,0.16),transparent 60%),radial-gradient(ellipse 45% 40% at 75% 70%,rgba(94,90,220,0.14),transparent 60%),radial-gradient(ellipse 35% 30% at 60% 20%,rgba(20,20,30,0.9),transparent 70%);animation:kefi-fog 22s ease-in-out infinite"></div>
     <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,oklch(12% 0.02 260) 0%,transparent 30%,transparent 70%,oklch(12% 0.02 260) 100%)"></div>
     <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(72% 0.14 195);margin-bottom:20px;text-align:center">02 — AT A GLANCE</div>
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.6vw,42px);font-weight:700;text-align:center;margin:0 0 90px;color:oklch(97% 0.005 260)">THE PORTFOLIO IN NUMBERS</h2>
+      <div data-i18n="metrics.label" style="font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:0.2em;color:oklch(72% 0.14 195);margin-bottom:20px;text-align:center">02 — AT A GLANCE</div>
+      <h2 data-i18n="metrics.h2" style="font-family:'Uncial Antiqua',serif;font-size:clamp(28px,3.6vw,42px);font-weight:700;text-align:center;margin:0 0 90px;color:oklch(97% 0.005 260)">THE PORTFOLIO IN NUMBERS</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
         <div data-depth="0.05" style="position:relative;border:1px solid rgba(255,255,255,0.1);padding:56px 32px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)">
           <div style="position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195)"></div>
           <div style="position:absolute;bottom:-1px;right:-1px;width:20px;height:20px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195)"></div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">91</div>
-          <div style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Total IP Asset Units</div>
+          <div style="font-family:'Uncial Antiqua',serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">91</div>
+          <div data-i18n="metrics.s1" style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Total IP Asset Units</div>
         </div>
         <div data-depth="0.05" style="position:relative;border:1px solid rgba(255,255,255,0.1);padding:56px 32px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)">
           <div style="position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195)"></div>
           <div style="position:absolute;bottom:-1px;right:-1px;width:20px;height:20px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195)"></div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">33</div>
-          <div style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Countries &amp; Regions Involved</div>
+          <div style="font-family:'Uncial Antiqua',serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">33</div>
+          <div data-i18n="metrics.s2" style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Countries &amp; Regions Involved</div>
         </div>
         <div data-depth="0.05" style="position:relative;border:1px solid rgba(255,255,255,0.1);padding:56px 32px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)">
           <div style="position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1.5px solid oklch(72% 0.14 195);border-left:1.5px solid oklch(72% 0.14 195)"></div>
           <div style="position:absolute;bottom:-1px;right:-1px;width:20px;height:20px;border-bottom:1.5px solid oklch(72% 0.14 195);border-right:1.5px solid oklch(72% 0.14 195)"></div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">5</div>
-          <div style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Released Assets</div>
+          <div style="font-family:'Uncial Antiqua',serif;font-size:clamp(48px,7vw,72px);font-weight:700;color:oklch(97% 0.005 260);line-height:1;text-shadow:0 0 40px rgba(20,184,166,0.3)">5</div>
+          <div data-i18n="metrics.s3" style="margin-top:18px;font-size:14px;letter-spacing:0.06em;color:oklch(65% 0.015 260);text-transform:uppercase">Released Assets</div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer style="position:relative;padding:64px 48px 48px;background:transparent;overflow:hidden">
+  <footer style="font-family:'Space Grotesk',sans-serif;position:relative;z-index:1;padding:64px 48px 48px;background:transparent;overflow:hidden">
     <div style="position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(ellipse 40% 45% at 30% 50%,rgba(10,14,18,0.55),transparent 60%),radial-gradient(ellipse 35% 40% at 80% 40%,rgba(8,10,16,0.5),transparent 60%);animation:kefi-fog 28s ease-in-out infinite reverse"></div>
     <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,0.35)"></div>
     <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap">
       <img src="uploads/Kefi_logo.png" alt="Kefi" style="height:26px;width:auto;object-fit:contain;opacity:0.85">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:0.1em;color:oklch(50% 0.02 260)">AMSTERDAM, NETHERLANDS &amp; MONACO</div>
+      <div data-i18n="footer.location" style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:0.1em;color:oklch(50% 0.02 260)">AMSTERDAM, NETHERLANDS &amp; MONACO</div>
     </div>
-    <p style="font-size:12.5px;line-height:1.7;color:oklch(42% 0.02 260);max-width:900px;margin:0">This page contains forward-looking statements regarding a proposed public offering, capital raise, and business strategy. Actual outcomes may differ materially from those expressed or implied. Nothing herein constitutes an offer to sell or a solicitation of an offer to buy any securities.</p>
-    <div style="font-size:12px;color:oklch(38% 0.02 260)">© 2026 Kefi B.V. All rights reserved.</div>
+    <p data-i18n="footer.disclaimer" style="font-size:12.5px;line-height:1.7;color:oklch(42% 0.02 260);max-width:900px;margin:0">This page contains forward-looking statements regarding a proposed public offering, capital raise, and business strategy. Actual outcomes may differ materially from those expressed or implied. Nothing herein constitutes an offer to sell or a solicitation of an offer to buy any securities.</p>
+    <div data-i18n="footer.copyright" style="font-size:12px;color:oklch(38% 0.02 260)">© 2026 Kefi B.V. All rights reserved.</div>
     </div>
   </footer>
-
-    </div>
   </div>
 
 </div>
@@ -203,6 +227,124 @@
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
   update();
+})();
+
+// ── Language selector + translations ───────────────────────────────────────
+(function () {
+  var I18N = {
+    en: {
+      "nav.overview": "Overview",
+      "nav.kefi": "Kefi B.V.",
+      "nav.metrics": "Metrics",
+      "hero.live": "● LIVE ADVISORY",
+      "hero.eyebrow": "Strategic Advisory Mobilization",
+      "hero.headline": "CAPTURING TOMORROW'S VALUE, TODAY",
+      "hero.intro1": "Kefi is a stealth-mode private holding ecosystem operating as a global treasure box for high-potential assets.",
+      "hero.intro2": "We are driven by a powerhouse team of explorers and adventurers who possess diverse professional fields and deep cross-cultural and cross-ideological backgrounds.",
+      "hero.intro3": "We closely observe the market alongside our collection of hidden patents, releasing these premier assets when the timing aligns to achieve maximum monetization or execute strategic exchange with the most suitable entities.",
+      "hero.dateline": "AMSTERDAM, NETHERLANDS & MONACO",
+      "hero.scroll": "SCROLL",
+      "about.label": "01 — KEFI B.V.",
+      "about.h2": "What Defines a Treasure Box?",
+      "about.body1": "Our curated collection spans diverse frontiers, including medical IP, energy technology, sports, Web3, AI, and sovereign Public-Private Partnerships (PPP).",
+      "about.body2": "Within our repository are equities with absolute board-disruptive positions, assets or rights acquired at extreme discounts during opportune moments, emergent technologies held patiently for years until market readiness, government concessions for large-scale energy developments, and distressed assets primed for recapitalization.",
+      "about.body3": "This low-profile, adventurer-style curation shapes our distinct DNA — allowing us to bypass draining public-market friction, redundant networking, and unnecessary institutional conflict.",
+      "metrics.label": "02 — AT A GLANCE",
+      "metrics.h2": "THE PORTFOLIO IN NUMBERS",
+      "metrics.s1": "Total IP Asset Units",
+      "metrics.s2": "Countries & Regions Involved",
+      "metrics.s3": "Released Assets",
+      "footer.location": "AMSTERDAM, NETHERLANDS & MONACO",
+      "footer.disclaimer": "This page contains forward-looking statements regarding a proposed public offering, capital raise, and business strategy. Actual outcomes may differ materially from those expressed or implied. Nothing herein constitutes an offer to sell or a solicitation of an offer to buy any securities.",
+      "footer.copyright": "© 2026 Kefi B.V. All rights reserved."
+    },
+    fr: {
+      "nav.overview": "Aperçu",
+      "nav.kefi": "Kefi B.V.",
+      "nav.metrics": "Chiffres",
+      "hero.live": "● CONSEIL EN DIRECT",
+      "hero.eyebrow": "Mobilisation de conseil stratégique",
+      "hero.headline": "CAPTURER LA VALEUR DE DEMAIN, AUJOURD'HUI",
+      "hero.intro1": "Kefi est un écosystème de holdings privées opérant avec discrétion, conçu comme un véritable écrin international dédié aux actifs à fort potentiel.",
+      "hero.intro2": "Nous nous appuyons sur une équipe d’exception, réunissant des profils d’explorateurs et d’entrepreneurs issus d’horizons professionnels variés, enrichis par une profonde expérience interculturelle et une capacité à évoluer au-delà des clivages idéologiques.",
+      "hero.intro3": "Nous observons attentivement les dynamiques de marché tout en développant et en préservant un portefeuille confidentiel de brevets et d’actifs stratégiques. Lorsque les conditions sont réunies, nous activons ces actifs de premier plan afin d’en maximiser la valorisation, d’en assurer la monétisation ou de conclure des échanges stratégiques avec les partenaires et institutions les mieux positionnés.",
+      "hero.dateline": "AMSTERDAM, PAYS-BAS & MONACO",
+      "hero.scroll": "DÉFILER",
+      "about.label": "01 — KEFI B.V.",
+      "about.h2": "Qu'est-ce qui définit un coffre au trésor ?",
+      "about.body1": "Notre portefeuille, constitué avec soin au fil du temps, couvre des secteurs variés, notamment la propriété intellectuelle dans le domaine médical, les technologies énergétiques, le sport, le Web3, l’intelligence artificielle ainsi que les partenariats public-privé (PPP) souverains.",
+      "about.body2": "Il comprend notamment des participations assorties d’une influence déterminante au sein des conseils d’administration, des actifs ou des droits acquis à des conditions particulièrement avantageuses lors de fenêtres d’opportunité, des technologies émergentes accompagnées sur le long terme jusqu’à la maturité de leur marché, des concessions publiques liées à des projets énergétiques de grande envergure, ainsi que des actifs en difficulté présentant un potentiel de recapitalisation.",
+      "about.body3": "Cette approche sélective, opportuniste et volontairement discrète constitue une part essentielle de notre ADN. Elle nous permet de privilégier les opérations à forte valeur stratégique tout en évitant les lourdeurs des marchés publics, les démarches de réseautage sans réelle valeur ajoutée et les conflits institutionnels superflus.",
+      "metrics.label": "02 — EN UN COUP D'ŒIL",
+      "metrics.h2": "LE PORTEFEUILLE EN CHIFFRES",
+      "metrics.s1": "Unités totales d'actifs de PI",
+      "metrics.s2": "Pays et régions concernés",
+      "metrics.s3": "Actifs commercialisés",
+      "footer.location": "AMSTERDAM, PAYS-BAS & MONACO",
+      "footer.disclaimer": "Cette page contient des déclarations prospectives relatives à un projet d'introduction en bourse, à une levée de capitaux et à une stratégie commerciale. Les résultats réels peuvent différer sensiblement de ceux exprimés ou sous-entendus. Rien dans les présentes ne constitue une offre de vente ni une sollicitation d'offre d'achat de titres.",
+      "footer.copyright": "© 2026 Kefi B.V. Tous droits réservés."
+    }
+  };
+
+  // Inline SVG flags (no external assets; render reliably on all platforms).
+  var FLAG_UK = '<svg viewBox="0 0 60 30" preserveAspectRatio="none"><clipPath id="a%U%"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="b%U%"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#a%U%)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#b%U%)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>';
+  var FLAG_FR = '<svg viewBox="0 0 3 2" preserveAspectRatio="none"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>';
+  var uidCounter = 0;
+  function flagSVG(lang) {
+    if (lang === 'fr') return FLAG_FR;
+    uidCounter++;
+    return FLAG_UK.replace(/%U%/g, uidCounter);
+  }
+
+  var btn = document.getElementById('langBtn');
+  var menu = document.getElementById('langMenu');
+  var flagEl = document.getElementById('langFlag');
+  var codeEl = document.getElementById('langCode');
+  if (!btn || !menu) return;
+
+  function applyLang(lang) {
+    var dict = I18N[lang] || I18N.en;
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute('data-i18n');
+      if (dict[key] != null) nodes[i].textContent = dict[key];
+    }
+    document.documentElement.lang = lang;
+    flagEl.innerHTML = flagSVG(lang);
+    codeEl.textContent = lang.toUpperCase();
+    var items = menu.querySelectorAll('[data-lang]');
+    for (var j = 0; j < items.length; j++) {
+      items[j].setAttribute('aria-current', items[j].getAttribute('data-lang') === lang ? 'true' : 'false');
+    }
+    try { localStorage.setItem('kefiLang', lang); } catch (e) {}
+  }
+
+  function openMenu() { menu.style.display = 'block'; btn.setAttribute('aria-expanded', 'true'); }
+  function closeMenu() { menu.style.display = 'none'; btn.setAttribute('aria-expanded', 'false'); }
+
+  // Pre-fill the flags shown inside the dropdown items.
+  var mflags = menu.querySelectorAll('[data-flag]');
+  for (var m = 0; m < mflags.length; m++) mflags[m].innerHTML = flagSVG(mflags[m].getAttribute('data-flag'));
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (menu.style.display === 'block') closeMenu(); else openMenu();
+  });
+  var langItems = menu.querySelectorAll('[data-lang]');
+  for (var n = 0; n < langItems.length; n++) {
+    langItems[n].addEventListener('click', function () {
+      applyLang(this.getAttribute('data-lang'));
+      closeMenu();
+    });
+  }
+  document.addEventListener('click', function (e) {
+    if (!document.getElementById('langSel').contains(e.target)) closeMenu();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+  var saved = null;
+  try { saved = localStorage.getItem('kefiLang'); } catch (e) {}
+  applyLang(saved === 'fr' ? 'fr' : 'en');
 })();
 </script>
 
